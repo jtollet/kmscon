@@ -569,8 +569,7 @@ static int seat_vt_event(struct uterm_vt *vt, struct uterm_vt_event *ev, void *d
 static void seat_trigger_reboot(struct kmscon_seat *seat)
 {
 	if (seat->conf->grab_reboot_mode == KMSCON_REBOOT_SOFT) {
-		log_warning("soft reboot triggered by keyboard shortcut on seat %s",
-			    seat->name);
+		log_warning("soft reboot triggered by keyboard shortcut on seat %s", seat->name);
 
 		if (kill(1, SIGINT) < 0)
 			log_error("failed to signal PID 1 for reboot: %m");
